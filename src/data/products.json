@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Big Burger",
+    "shortDescription": "Doble carne y queso.",
+    "longDescription": "Dos medallones, doble cheddar, lechuga, tomate y salsa especial.",
+    "price": 2500,
+    "stock": 15,
+    "brand": "FastFoodCo",
+    "category": "hamburguesas",
+    "discount": 10,
+    "tags": ["popular", "combo"],
+    "mainImage": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Cheese Burger",
+    "shortDescription": "Clásica con queso.",
+    "longDescription": "Carne 100% vacuna, cheddar, ketchup y mostaza.",
+    "price": 1500,
+    "stock": 25,
+    "brand": "FastFoodCo",
+    "category": "hamburguesas",
+    "discount": 0,
+    "tags": ["classic"],
+    "mainImage": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Papas Fritas Grandes",
+    "shortDescription": "Crocantes y doradas.",
+    "longDescription": "Papas finas fritas a punto justo de crocancia.",
+    "price": 1200,
+    "stock": 40,
+    "brand": "FastFoodCo",
+    "category": "papas fritas",
+    "discount": 0,
+    "tags": ["snack"],
+    "mainImage": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "title": "Coca Cola 500ml",
+    "shortDescription": "Botella 500ml.",
+    "longDescription": "Coca Cola bien fría.",
+    "price": 800,
+    "stock": 50,
+    "brand": "Coca Cola",
+    "category": "bebidas",
+    "discount": 0,
+    "tags": ["drink"],
+    "mainImage": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "title": "Sundae Chocolate",
+    "shortDescription": "Helado con salsa.",
+    "longDescription": "Vainilla con abundante salsa de chocolate.",
+    "price": 1000,
+    "stock": 20,
+    "brand": "FastFoodCo",
+    "category": "postres",
+    "discount": 5,
+    "tags": ["sweet"],
+    "mainImage": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80"
+  }
+]
