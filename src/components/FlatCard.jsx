@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { colors } from '../global/colors'
 
-//Componente Wrapper
 const FlatCard = ({ children,style }) => {
     return (
         <View style={{...styles.container,...style}}>

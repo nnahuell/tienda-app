@@ -1,27 +1,35 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInAnonymously } from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
+import { initializeApp } from "firebase/app";
+import { getAuth, signInAnonymously } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 
-// ⚠️ Reemplazá con tu config desde la consola de Firebase
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
-  databaseURL: "TU_DATABASE_URL",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_BUCKET",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyDstq5-fRu_ojgB6TZO5_ciHv5jsCFw-m0",
+  authDomain: "tiendapp-90cb3.firebaseapp.com",
+  databaseURL: "https://tiendapp-90cb3-default-rtdb.firebaseio.com", 
+  projectId: "tiendapp-90cb3",
+  storageBucket: "tiendapp-90cb3.firebasestorage.app",
+  messagingSenderId: "170333302452",
+  appId: "1:170333302452:web:bc8f7320618732b540f1e1",
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getDatabase(app);
 
-export const loginAnon = async () => {
-  const user = await signInAnonymously(auth);
-  return user.user.uid;
+// Auth anónima
+export const auth = getAuth(app);
+export const signInAnon = async () => {
+  const cred = await signInAnonymously(auth);
+  return cred.user.uid;
 };
 
-export const saveTest = async (uid) => {
-  await set(ref(db, 'tests/' + uid), { message: 'Hola Firebase!' });
+// Realtime Database
+const rtdb = getDatabase(app);
+
+// Guardar orden 
+export const pushOrder = async ({ uid, orderId, total, itemsCount }) => {
+  await set(ref(rtdb, `orders/${uid}/${orderId}`), {
+    orderId,
+    total,
+    itemsCount,
+    createdAt: new Date().toISOString()
+  });
 };

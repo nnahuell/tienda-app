@@ -1,28 +1,28 @@
-// App.js
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 import StoreNavigator from './src/navigation/shop/StoreNavigator';
 import CartNavigator from './src/navigation/cart/CartNavigator';
+import { signInAnon } from './src/services/firebase'; 
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
 
+  useEffect(() => {
+    signInAnon().catch(() => {}); 
+  }, []);
+
   const addToCart = (product) => setCartItems((prev) => [...prev, product]);
   const removeFromCart = (index) =>
     setCartItems((prev) => prev.filter((_, i) => i !== index));
   const clearCart = () => setCartItems([]);
 
-  // 👇 memoizamos para evitar remounts en cada setState del carrito
-  const storeTab = useMemo(
-    () => <StoreNavigator addToCart={addToCart} />,
-    [addToCart]
-  );
+  const storeTab = useMemo(() => <StoreNavigator addToCart={addToCart} />, [addToCart]);
 
   const cartTab = useMemo(
     () => (

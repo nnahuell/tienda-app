@@ -1,16 +1,24 @@
-// src/screens/cart/OrderSuccessScreen.jsx
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { auth, pushOrder } from '../../services/firebase';
 
 const OrderSuccessScreen = ({ route, navigation, clearCart }) => {
   const { orderId, total, itemsCount } = route.params || {};
-  const clearedRef = useRef(false); // 👈 fusible
+  const clearedRef = useRef(false);
 
   useEffect(() => {
     if (clearedRef.current) return;
     clearedRef.current = true;
-    clearCart?.(); // vaciar carrito una única vez
-  }, [clearCart]);
+
+    // limpiar carrito
+    clearCart?.();
+
+    // guardar orden en Firebase 
+    const uid = auth.currentUser?.uid;
+    if (uid && orderId) {
+      pushOrder({ uid, orderId, total, itemsCount }).catch(() => {});
+    }
+  }, [clearCart, orderId, total, itemsCount]);
 
   return (
     <View style={styles.container}>

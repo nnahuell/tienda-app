@@ -23,12 +23,34 @@ Características
 
 Estructura de carpetas
 
-src/
-├── components/ Componentes reutilizables
-├── data/ Archivos JSON (categorías y productos)
-├── global/ Colores y estilos globales
-├── navigation/ Navegadores (StoreNavigator, CartNavigator)
-└── screens/ Pantallas de la app
+La app está organizada en módulos (navegación, screens, services y data) siguiendo las buenas prácticas de React Native.
+
+---
+
+Persistencia local (SQLite)
+
+Se utiliza expo-sqlite para almacenar datos de prueba localmente.
+El archivo src/services/db.js y la pantalla de prueba demuestran el uso de SQLite.
+
+---
+
+Device Feature (Ubicación)
+
+Se utiliza expo-location en la pantalla LocationScreen.jsx para obtener latitud y longitud del dispositivo.
+Esto cumple el punto de Device Features de la rúbrica.
+
+---
+
+Servicios Firebase
+
+Auth anónima implementada con signInAnonymously (ver src/services/firebase.js).
+Realtime Database: al finalizar una compra, la orden se guarda en /orders/{uid}/{orderId} en la base de datos.
+
+---
+
+Flujo general de la app
+
+Productos → Carrito → Finalizar compra → Pantalla de éxito.
 
 
 ---

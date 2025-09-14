@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between', // separa título e imagen
+    justifyContent: 'space-between', 
     gap: 12
   },
   title: {
